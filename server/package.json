@@ -1,0 +1,23 @@
+{
+  "name": "ready-eft-crud",
+  "version": "1.0.0",
+  "description": "Helps user remember passed raids in the video game Escape From Tarkov",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lekashi/Ready-EFT-CRUD.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lekashi/Ready-EFT-CRUD/issues"
+  },
+  "homepage": "https://github.com/Lekashi/Ready-EFT-CRUD#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mysql": "^2.18.1"
+  }
+}
