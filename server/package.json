@@ -2,7 +2,7 @@
   "name": "ready-eft-crud",
   "version": "1.0.0",
   "description": "Helps user remember passed raids in the video game Escape From Tarkov",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
