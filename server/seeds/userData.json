@@ -1,0 +1,27 @@
+[
+    {
+      "email": "bob@bob.com",
+      "username": "bob_is_cool",
+      "password": "coolguy123"
+    },
+    {
+      "email": "penny@penelope.com",
+      "username": "tarkov_mama",
+      "password": "monsterra22"
+    },
+    {        
+      "email": "john@doe.com",
+      "username": "jonnyboy22",
+      "password": "jd1989"
+    },
+    {
+      "email": "jane@doe.com",
+      "username": "housetarkov.lover",
+      "password": "h0usetarkovqueen"
+      },
+    {
+      "email": "frank@frankie.net",
+      "username": "tarkov4ever",
+      "password": "frankielovestarkov123"
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "map": "Woods",
+        "maptime": "Night",
+        "deployingtime": "6:45",
+        "raidtime": "25:52",
+        "survived": false,
+        "user_id": 1,
+        "group_id": 1
+    },
+    {
+        "map": "Customs",
+        "maptime": "Day",
+        "deployingtime": "2:31",
+        "raidtime": "18:34",
+        "survived": true,
+        "user_id": 2,
+        "group_id": 1
+    }
+]
