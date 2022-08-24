@@ -2,6 +2,8 @@
     {
         "map": "Woods",
         "maptime": "Night",
+        "time": "19:25:34",
+        "date": "8/21/22 19:25:34",
         "deployingtime": "6:45",
         "raidtime": "25:52",
         "survived": false,
@@ -11,6 +13,8 @@
     {
         "map": "Customs",
         "maptime": "Day",
+        "time": "22:54:57",
+        "date": "8/19/22 22:54:57",
         "deployingtime": "2:31",
         "raidtime": "18:34",
         "survived": true,

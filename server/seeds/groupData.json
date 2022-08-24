@@ -9,6 +9,7 @@
         "user4_id":null,
         "user4_name":null,
         "user5_id":null,
-        "user5_name":null
+        "user5_name":null,
+        "abandonuser": [3,4]
     }
 ]

@@ -6,7 +6,7 @@ class Group extends Model {}
 Group.init(
   {
     // Group ID
-    id: {
+    group_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -77,14 +77,10 @@ Group.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    pastraid: {
-        type: DataTypes.INTEGER,
-      references: {
-        model: "raid",
-        key: "id",
-      },
-      allowNull: true,
-    },
+    abandonuser: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    }
   },
   {
     sequelize,

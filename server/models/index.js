@@ -2,25 +2,30 @@ const User = require("./User");
 const Raid = require("./raid");
 const Group = require("./group");
 
-User.hasMany(Raid, {
+
+Group.hasMany(User, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
 });
 
-Group.hasMany(User, {
-  foreignKey: "group_id",
-});
-
 Group.belongsTo(Raid, {
-  foreignKey: "raid_id",
+  foreignKey: "group_id",
+  onDelete: "CASCADE",
 });
 
 Raid.hasMany(Group, {
-  foreignKey: "raid_id",
+  foreignKey: "group_id",
+  onDelete: "CASCADE",
 });
 
-Raid.belongsTo(User, {
+Raid.hasMany(User, {
   foreignKey: "user_id",
+  onDelete: "CASCADE",
+});
+
+User.belongsTo(Group, {
+  foreignKey: "group_id",
+  onDelete: "CASCADE",
 });
 
 module.exports = { User, Raid, Group };
