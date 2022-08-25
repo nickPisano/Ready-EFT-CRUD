@@ -5,11 +5,15 @@ class Raid extends Model {}
 
 Raid.init(
   {
-    id: {
+    raid_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+    },
+    time: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     map: {
       type: DataTypes.STRING,
@@ -37,8 +41,12 @@ Raid.init(
     },
     group_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
     },
+    date: {
+        type: DataTypes.DATE,
+        allowNull:true
+    }
   },
   {
     sequelize,
