@@ -1,19 +1,32 @@
+@font-face {
+  font-family: rubikMoonrocks;
+  src: url('../public/RubikMoonrocks-Regular.ttf');
+}
+
+@font-face {
+  font-family: RobotoCondensed-Regular;
+  src: url('../public/RobotoCondensed-Regular.ttf');
+}
+
 body {
+  font-family: 'RobotoCondensed-Regular';
   background: #222;
   color: rgb(255, 255, 255);
 }
 
 header {
+  font-family: 'rubikMoonrocks';
   display: flex;
   justify-content: center;
   z-index: -1;
+  font-size: xx-large;
 }
 
 nav {
   display: flex;
   justify-content: flex-end;
   position: relative;
-  top: -50px;
+  top: -96px;
   right: 10px;
 }
 
