@@ -13,8 +13,8 @@
     "type": "git",
     "url": "git+https://github.com/Lekashi/Ready-EFT-CRUD.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Lekashi",
+  "license": "GNU",
   "bugs": {
     "url": "https://github.com/Lekashi/Ready-EFT-CRUD/issues"
   },
