@@ -8,27 +8,47 @@ socket.on("connect", () => {
 });
 
 const Group = () => {
-  const [message, setMessage] = useState("");
-  const [messageReceived, setMessageReceive] = useState("")
-  const sendMessage = () => {
-    socket.emit('send_message', { message } )
-  };
+  // Room State
+  const [room, setRoom] = useState("");
 
+  // Sending Messages to Other users Realtime
+  const [message, setMessage] = useState("");
+  const [messageReceived, setMessageReceive] = useState("");
+
+  const joinRoom = () => {
+    if (room !== "") {
+      socket.emit("join_room", room);
+    }
+  };
+  
+  const sendMessage = () => {
+    socket.emit("send_message", { message, room });
+  };
+  
   useEffect(() => {
     socket.on("receive_message", (data) => {
-      setMessageReceive(data.message)
-    })
-  }, [socket])
+      setMessageReceive(data.message);
+    });
+  }, [socket]);
 
   return (
     <div>
       <h1>Your connected with id: {socket.id}</h1>
       <div>
-        <div className="messageDiv">
-          <input placeholder="Message" 
+        <input
+          placeholder="Room Number..."
           onChange={(event) => {
-            setMessage(event.target.value)
-          }}/>
+            setRoom(event.target.value);
+          }}
+        />
+        <button onClick={joinRoom}> Join Room</button>
+        <div className="messageDiv">
+          <input
+            placeholder="Message"
+            onChange={(event) => {
+              setMessage(event.target.value);
+            }}
+          />
           <button onClick={sendMessage}>Send Message</button>
         </div>
       </div>
