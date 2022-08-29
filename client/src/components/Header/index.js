@@ -3,9 +3,19 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header>
-      <h1>Ready-EFT</h1>
-    </header>
+    <div>
+      <header>
+        <h1>Ready-EFT</h1>
+      </header>
+        <nav>
+          <Link className="navLink" to="/">
+            Home
+          </Link>
+          <Link className="navLink" to="/main">
+            Main
+          </Link>
+        </nav>
+    </div>
   );
 };
 

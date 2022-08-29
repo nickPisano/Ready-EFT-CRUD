@@ -32,8 +32,8 @@ const Group = () => {
   }, [socket]);
 
   return (
-    <div>
-      <h1>Your connected with id: {socket.id}</h1>
+    <div className="chatRoom">
+      <h2>Your connected with id: {socket.id}</h2>
       <div>
         <input
           placeholder="Room Number..."
