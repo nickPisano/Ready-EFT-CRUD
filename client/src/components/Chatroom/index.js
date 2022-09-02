@@ -1,16 +1,24 @@
-import { React, useEffect, useState } from "react";
-import { io } from "socket.io-client";
+import { React, useContext, useEffect, useState } from "react";
+import {SocketContext} from '../../context/socket';
 
-const socket = io.connect("http://localhost:8080");
-
-socket.on("connect", () => {
-  console.log(`You did it, You are connected with id: ${socket.id}`);
-});
-
-const Group = () => {
+const Chatroom = () => {
+  const socket = useContext(SocketContext);
+  socket.on("connect", () => {
+    console.log(`You did it, You are connected with id: ${socket.id}`);
+  });
+  
+  const [isConnected, setIsConnected] = useState(socket.connected);
+  
+  socket.on("connect", () => {
+    setIsConnected(true);
+  });
+  
+  socket.on("disconnect", () => {
+    setIsConnected(false);
+    });
   // Callsign State
   const [callSign, setCallSign] = useState("");
-
+  
   // Room State
   const [room, setRoom] = useState("");
 
@@ -19,7 +27,6 @@ const Group = () => {
   const [messageReceived, setMessageReceive] = useState("");
 
   // checks if user is connected
-  const [isConnected, setIsConnected] = useState(socket.connected);
 
   const setCall = () => {
     if (callSign !== "") {
@@ -33,13 +40,6 @@ const Group = () => {
     }
   };
 
-  socket.on("connect", () => {
-    setIsConnected(true);
-  });
-
-  socket.on("disconnect", () => {
-    setIsConnected(false);
-  });
 
   const sendMessage = () => {
     socket.emit("send_message", { message, room, callSign });
@@ -132,9 +132,8 @@ const Group = () => {
       </div>
       <h2>Chat Messages</h2>
       <div id="message-container"></div>
-      <p>Connected: {"" + isConnected}</p>
     </div>
   );
 };
 
-export default Group;
+export default Chatroom;
