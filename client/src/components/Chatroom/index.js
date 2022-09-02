@@ -1,13 +1,12 @@
-import { React, useEffect, useState } from "react";
-import { io } from "socket.io-client";
+import { React, useContext, useEffect, useState } from "react";
+import { SocketContext } from "../../context/socket";
 
-const socket = io.connect("http://localhost:8080");
+const Chatroom = () => {
+  const socket = useContext(SocketContext);
+  socket.on("connect", () => {
+    console.log(`You did it, You are connected with id: ${socket.id}`);
+  });
 
-socket.on("connect", () => {
-  console.log(`You did it, You are connected with id: ${socket.id}`);
-});
-
-const Group = () => {
   // Callsign State
   const [callSign, setCallSign] = useState("");
 
@@ -19,7 +18,6 @@ const Group = () => {
   const [messageReceived, setMessageReceive] = useState("");
 
   // checks if user is connected
-  const [isConnected, setIsConnected] = useState(socket.connected);
 
   const setCall = () => {
     if (callSign !== "") {
@@ -33,14 +31,6 @@ const Group = () => {
     }
   };
 
-  socket.on("connect", () => {
-    setIsConnected(true);
-  });
-
-  socket.on("disconnect", () => {
-    setIsConnected(false);
-  });
-
   const sendMessage = () => {
     socket.emit("send_message", { message, room, callSign });
     const div = document.createElement("div");
@@ -50,7 +40,7 @@ const Group = () => {
     const img = document.createElement("img");
     const today = new Date();
     img.src = "defaultAvatar.jpg";
-    img.style = "width:100%;"
+    img.style = "width:100%;";
     img.alt = "Avatar";
     currentTime.textContent =
       today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -81,7 +71,7 @@ const Group = () => {
     const img = document.createElement("img");
     const today = new Date();
     img.src = "defaultAvatar.jpg";
-    img.style = "width:100%;"
+    img.style = "width:100%;";
     img.alt = "Avatar";
     currentTime.textContent =
       today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -132,9 +122,8 @@ const Group = () => {
       </div>
       <h2>Chat Messages</h2>
       <div id="message-container"></div>
-      <p>Connected: {"" + isConnected}</p>
     </div>
   );
 };
 
-export default Group;
+export default Chatroom;
