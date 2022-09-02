@@ -1,24 +1,15 @@
 import { React, useContext, useEffect, useState } from "react";
-import {SocketContext} from '../../context/socket';
+import { SocketContext } from "../../context/socket";
 
 const Chatroom = () => {
   const socket = useContext(SocketContext);
   socket.on("connect", () => {
     console.log(`You did it, You are connected with id: ${socket.id}`);
   });
-  
-  const [isConnected, setIsConnected] = useState(socket.connected);
-  
-  socket.on("connect", () => {
-    setIsConnected(true);
-  });
-  
-  socket.on("disconnect", () => {
-    setIsConnected(false);
-    });
+
   // Callsign State
   const [callSign, setCallSign] = useState("");
-  
+
   // Room State
   const [room, setRoom] = useState("");
 
@@ -40,7 +31,6 @@ const Chatroom = () => {
     }
   };
 
-
   const sendMessage = () => {
     socket.emit("send_message", { message, room, callSign });
     const div = document.createElement("div");
@@ -50,7 +40,7 @@ const Chatroom = () => {
     const img = document.createElement("img");
     const today = new Date();
     img.src = "defaultAvatar.jpg";
-    img.style = "width:100%;"
+    img.style = "width:100%;";
     img.alt = "Avatar";
     currentTime.textContent =
       today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -81,7 +71,7 @@ const Chatroom = () => {
     const img = document.createElement("img");
     const today = new Date();
     img.src = "defaultAvatar.jpg";
-    img.style = "width:100%;"
+    img.style = "width:100%;";
     img.alt = "Avatar";
     currentTime.textContent =
       today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
