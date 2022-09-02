@@ -21,7 +21,12 @@ io.on("connection", (socket) => {
 
   // Sends a status of current room
   socket.on("join_room", (data) => {
-    console.log(`Socket id: ${socket.id} joined room: ${data}`);
+    console.log(`Socket id: ${socket.id} => Joined Room: ${data}`);
+    socket.join(data);
+  });
+
+  socket.on("set_callsign", (data) => {
+    console.log(`Socket id: ${socket.id} => Set Callsign: ${data}`);
     socket.join(data);
   });
 
