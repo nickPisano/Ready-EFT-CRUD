@@ -43,6 +43,27 @@ const Group = () => {
 
   const sendMessage = () => {
     socket.emit("send_message", { message, room, callSign });
+    const div = document.createElement("div");
+    const text = document.createElement("p");
+    const currentTime = document.createElement("span");
+    const name = document.createElement("span");
+    const img = document.createElement("img");
+    const today = new Date();
+    img.src = "defaultAvatar.jpg";
+    img.style = "width:100%;"
+    img.alt = "Avatar";
+    currentTime.textContent =
+      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    text.textContent = message;
+    name.textContent = callSign;
+    currentTime.className = "time-right";
+    name.className = "time-left";
+    div.className = "container darker";
+    div.append(text);
+    div.append(currentTime);
+    div.append(name);
+    div.append(img);
+    document.getElementById("message-container").append(div);
   };
 
   useEffect(() => {
@@ -53,11 +74,27 @@ const Group = () => {
   }, [socket]);
 
   const displayMessage = (msg, sign) => {
-    console.log("display message function called");
-    console.log(msg);
     const div = document.createElement("div");
-    div.textContent = `${msg} by ${sign}`;
-    div.className = "messages";
+    const text = document.createElement("p");
+    const currentTime = document.createElement("span");
+    const name = document.createElement("span");
+    const img = document.createElement("img");
+    const today = new Date();
+    img.src = "defaultAvatar.jpg";
+    img.style = "width:100%;"
+    img.alt = "Avatar";
+    currentTime.textContent =
+      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    text.textContent = msg;
+    name.textContent = sign;
+    currentTime.className = "time-left";
+    name.className = "time-right";
+    img.className = "right";
+    div.className = "container";
+    div.append(text);
+    div.append(currentTime);
+    div.append(name);
+    div.append(img);
     document.getElementById("message-container").append(div);
   };
 

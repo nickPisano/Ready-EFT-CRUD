@@ -1,21 +1,21 @@
 @font-face {
   font-family: rubikMoonrocks;
-  src: url('../public/RubikMoonrocks-Regular.ttf');
+  src: url("../public/RubikMoonrocks-Regular.ttf");
 }
 
 @font-face {
   font-family: RobotoCondensed-Regular;
-  src: url('../public/RobotoCondensed-Regular.ttf');
+  src: url("../public/RobotoCondensed-Regular.ttf");
 }
 
 body {
-  font-family: 'RobotoCondensed-Regular';
+  font-family: "RobotoCondensed-Regular";
   background: #222;
   color: rgb(255, 255, 255);
 }
 
 header {
-  font-family: 'rubikMoonrocks';
+  font-family: "rubikMoonrocks";
   display: flex;
   justify-content: center;
   z-index: -1;
@@ -41,6 +41,7 @@ nav {
 }
 
 /* Chat messenger CSS */
+
 /* Chat containers */
 .container {
   border: 2px solid #dedede;
@@ -48,12 +49,14 @@ nav {
   border-radius: 5px;
   padding: 10px;
   margin: 10px 0;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /* Darker chat container */
 .darker {
-  border-color: #ccc;
-  background-color: #ddd;
+  color:#aaa;
+  border-color: rgb(37, 25, 25);
+  background-color: rgb(83, 80, 80);
 }
 
 /* Clear floats */
@@ -76,7 +79,7 @@ nav {
 .container img.right {
   float: right;
   margin-left: 20px;
-  margin-right:0;
+  margin-right: 0;
 }
 
 /* Style time text */
