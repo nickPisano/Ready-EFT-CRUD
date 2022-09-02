@@ -5,6 +5,7 @@ import { SocketContext, socket } from "./context/socket";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Group from "./pages/Group";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/main" element={<Group />} />
             </Routes>
+          </div>
+          <div>
+            <Footer />
           </div>
         </Router>
       </div>
