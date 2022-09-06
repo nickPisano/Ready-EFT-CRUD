@@ -22,6 +22,7 @@ const Chatroom = () => {
   const setCall = () => {
     if (callSign !== "") {
       socket.emit("set_callsign", callSign);
+      setCallSign.value = "";
     }
   };
 
@@ -29,6 +30,7 @@ const Chatroom = () => {
     if (room !== "") {
       socket.emit("join_room", room);
     }
+    setRoom.value = "";
   };
 
   const sendMessage = () => {
@@ -49,10 +51,10 @@ const Chatroom = () => {
     currentTime.className = "time-right";
     name.className = "time-left";
     div.className = "container darker";
+    div.append(img);
     div.append(text);
     div.append(currentTime);
     div.append(name);
-    div.append(img);
     document.getElementById("message-container").append(div);
   };
 
@@ -81,10 +83,10 @@ const Chatroom = () => {
     name.className = "time-right";
     img.className = "right";
     div.className = "container";
+    div.append(img);
     div.append(text);
     div.append(currentTime);
     div.append(name);
-    div.append(img);
     document.getElementById("message-container").append(div);
   };
 

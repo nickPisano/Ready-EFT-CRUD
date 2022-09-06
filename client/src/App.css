@@ -50,6 +50,9 @@ nav {
   padding: 10px;
   margin: 10px 0;
   color: rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  width: 300px;
+  padding: 12px;
 }
 
 /* Darker chat container */
