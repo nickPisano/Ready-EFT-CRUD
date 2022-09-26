@@ -11,8 +11,8 @@ const Header = () => {
           <Link className="navLink" to="/">
             Home
           </Link>
-          <Link className="navLink" to="/main">
-            Main
+          <Link className="navLink" to="/join">
+            Join
           </Link>
         </nav>
     </div>
